@@ -80,6 +80,7 @@ jQuery._farbtastic = function (container, callback) {
     return this;
   }
   fb.updateValue = function (event) {
+    
     if (this.value && this.value != fb.color) {
       fb.setColor(this.value);
     }
@@ -95,6 +96,7 @@ jQuery._farbtastic = function (container, callback) {
       fb.rgb = unpack;
       fb.hsl = fb.RGBToHSL(fb.rgb);
       fb.updateDisplay();
+
     }
     return this;
   }
@@ -183,6 +185,8 @@ jQuery._farbtastic = function (container, callback) {
 
     // Process
     fb.mousemove(event);
+    $( "form" ).submit();
+     console.log("sergio");
     return false;
   }
 
@@ -254,6 +258,26 @@ jQuery._farbtastic = function (container, callback) {
     else if (typeof fb.callback == 'function') {
       fb.callback.call(fb, fb.color);
     }
+
+    //console.log(fb.color);
+    
+    
+    //console.log("pippo");
+
+
+    $( "form" ).submit(function( event ) {
+       $.ajax({
+        url: 'index.html',
+        type: 'get',
+        dataType: 'json',
+        data: $('input').serialize(),
+        success: function(data) {
+                  console.log("Success: "+data);
+                 }
+            
+    });
+      event.preventDefault();
+    });
   }
 
   /**

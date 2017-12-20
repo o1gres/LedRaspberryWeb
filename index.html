@@ -9,8 +9,8 @@
     
     <body>
     
-        <form>
-            <input type="text" id="color" name="color" value="#123456" />
+        <form id="colorCode" action="" method="get" enctype="multipart/form-data">
+            <input type="text" id="color" name="color" value="#123457" />
         </form>
 
         <div id="colorpicker"></div>
@@ -20,11 +20,24 @@
 
 <script type="text/javascript">
 
-  $(document).ready(function() {
+  $(document).ready(function() 
+  {
 
     $('#colorpicker').farbtastic('#color');
+    //console.log('#colorpicker');
+    
+
+   // $( "#color" ).submit(function( event ) {
+   // alert( "Handler for .submit() called." );
+   // event.preventDefault();
+   // });
+    
 
   });
+
+
+
+
 
 </script>
 
