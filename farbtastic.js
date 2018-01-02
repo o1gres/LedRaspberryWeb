@@ -266,16 +266,17 @@ jQuery._farbtastic = function (container, callback) {
 
 
     $( "form" ).submit(function( event ) {
+      console.log("zzzzz");
        $.ajax({
         url: 'index.html',
         type: 'get',
         dataType: 'json',
-        data: $('input').serialize(),
+        data: $('input#color').serialize(),
         success: function(data) {
                   console.log("Success: "+data);
                  }
             
-    });
+        });
       event.preventDefault();
     });
   }
@@ -366,4 +367,7 @@ jQuery._farbtastic = function (container, callback) {
   if (callback) {
     fb.linkTo(callback);
   }
+ 
 }
+
+

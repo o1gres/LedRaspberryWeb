@@ -9,12 +9,13 @@
     
     <body>
     
-        <form id="colorCode" action="" method="get">
-            <input type="text" id="color" name="color" value="#123457" />
-        </form>
+        <form id="colorCode" action="" method="get" name="formColor">
+            <input type="text" id="color" name="color" value="123456" />
+            <input type="text" id="colorFake" name="spegni" value="off" style='visibility: hidden;''  />
 
+        </form>
         <div id="colorpicker"></div>
-    
+    	<input type="button" id="off" value="off" onclick="" style='height:40px; width:80px; margin-top: 15px; align="right"; '/>
     </body>
 </html>
 
@@ -24,20 +25,31 @@
   {
 
     $('#colorpicker').farbtastic('#color');
-    //console.log('#colorpicker');
-    
-
-   // $( "#color" ).submit(function( event ) {
-   // alert( "Handler for .submit() called." );
-   // event.preventDefault();
-   // });
-    
 
   });
 
+  
+  
+  $("input#off").click(function(e)
+  {
+  
+    e.preventDefault();
+  
+  
+   $.ajax({
+           type: "GET",
+           url: "/",
+           data: $("#colorCode").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+              console.log("Off Inviato"); // show response from the php script.
+           }
+         });
 
-
-
-
+    return false; // avoid to execute the actual submit of the form.
+  
+  });
+    
+	
 </script>
 
