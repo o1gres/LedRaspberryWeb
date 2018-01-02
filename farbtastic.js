@@ -186,7 +186,6 @@ jQuery._farbtastic = function (container, callback) {
     // Process
     fb.mousemove(event);
     $( "form" ).submit();
-     console.log("sergio");
     return false;
   }
 
@@ -266,7 +265,6 @@ jQuery._farbtastic = function (container, callback) {
 
 
     $( "form" ).submit(function( event ) {
-      console.log("zzzzz");
        $.ajax({
         url: 'index.html',
         type: 'get',
@@ -300,7 +298,7 @@ jQuery._farbtastic = function (container, callback) {
     var r = Math.round(rgb[0] * 255);
     var g = Math.round(rgb[1] * 255);
     var b = Math.round(rgb[2] * 255);
-    return '#' + (r < 16 ? '0' : '') + r.toString(16) +
+    return (r < 16 ? '0' : '') + r.toString(16) +
            (g < 16 ? '0' : '') + g.toString(16) +
            (b < 16 ? '0' : '') + b.toString(16);
   }
@@ -361,7 +359,7 @@ jQuery._farbtastic = function (container, callback) {
   $('*', e).mousedown(fb.mousedown);
 
     // Init color
-  fb.setColor('#000000');
+  fb.setColor('#ffffff');
 
   // Set linked elements/callback
   if (callback) {
