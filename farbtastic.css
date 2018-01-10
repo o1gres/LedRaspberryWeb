@@ -18,6 +18,7 @@
  */
 .farbtastic {
   position: relative;
+  float: left;
 }
 .farbtastic * {
   position: absolute;
