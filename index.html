@@ -8,14 +8,24 @@
     </head>
     
     <body>
-    
+    	<form id="whiteCode" action="" method="get" name="whiteColor" style='display: none;'>
+    		<input type="text" id="bianco" name="white" value="ffffff" style='visibility: hidden;''  />
+
+    	</form>
+
         <form id="colorCode" action="" method="get" name="formColor" style='display: none;'>
             <input type="text" id="color" name="color" value="ffffff" style='display: none;'/>
             <input type="text" id="colorFake" name="spegni" value="000000" style='visibility: hidden;''  />
-
+            
         </form>
         <div id="colorpicker"></div>
-    	<input type="button" id="off" value="Off" onclick="" style='height:40px; width:80px; margin-top: 15px; align="right"; '/>
+        <div id="pulsanteBianco" style='margin-left: 355px;'>
+	        <input type="button" id="blank" value="Bianco" onclick="" style='height:60px; width:100px; margin-top: 15px; margin-top: 30px; align="right";'/>
+	    </div>
+	    <div id="pulasnteOff" style='margin-left: 355px;'>   	
+	    	<input type="button" id="off" value="Off" onclick="" style='height:60px; width:100px; margin-top: 140px; align="right"; '/>
+	    </div>
+    	
     </body>
 </html>
 
@@ -60,6 +70,28 @@
            success: function(data)
            {
               console.log("Off Inviato"); // show response from the php script.
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+  
+  });
+
+
+
+    $("input#blank").click(function(e)
+  {
+  
+    e.preventDefault();
+  
+  
+   $.ajax({
+           type: "GET",
+           url: "/",
+           data: $("#whiteCode").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+              console.log("Bianco Inviato"); // show response from the php script.
            }
          });
 
