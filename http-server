@@ -84,21 +84,28 @@ if (!argv.s && !argv.silent) {
         var parts = url.parse(req.url, true);
         var query = parts.query;
 
+
         var colore = query.color;
         var spegni = query.spegni;
-
+        var bianco = query.white;
         
 
         if (colore != undefined && spegni == undefined)
         {
           logger.info("colore: "+colore);
-          client.publish('sergio', colore)
+          client.publish('SergioRaspberryLed', colore)
         }
 
         if (spegni != undefined)
         {
           logger.info("spegni: "+spegni);
-          client.publish('sergio', spegni)
+          client.publish('SergioRaspberryLed', spegni)
+        }
+
+        if (bianco != undefined)
+        {
+          logger.info("spegni: "+spegni);
+          client.publish('SergioRaspberryLed', bianco)
         }
 
 

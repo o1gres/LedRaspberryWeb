@@ -10,12 +10,15 @@
     <body>
     	<form id="whiteCode" action="" method="get" name="whiteColor" style='display: none;'>
     		<input type="text" id="bianco" name="white" value="ffffff" style='visibility: hidden;''  />
+    	</form>
 
+    	<form id="spegniCode" action="" method="get" name="spegniCode" style='display: none;'>
+    		<input type="text" id="colorFake" name="spegni" value="000000" style='visibility: hidden;''  />
     	</form>
 
         <form id="colorCode" action="" method="get" name="formColor" style='display: none;'>
             <input type="text" id="color" name="color" value="ffffff" style='display: none;'/>
-            <input type="text" id="colorFake" name="spegni" value="000000" style='visibility: hidden;''  />
+            
             
         </form>
         <div id="colorpicker"></div>
@@ -65,11 +68,11 @@
   
    $.ajax({
            type: "GET",
-           url: "/",
-           data: $("#colorCode").serialize(), // serializes the form's elements.
+           url: "/spegni",
+           data: $("#spegniCode").serialize(), // serializes the form's elements.
            success: function(data)
            {
-              console.log("Off Inviato"); // show response from the php script.
+              console.log("Off Inviato: "+data); // show response from the php script.
            }
          });
 
@@ -87,11 +90,11 @@
   
    $.ajax({
            type: "GET",
-           url: "/",
+           url: "/bianco",
            data: $("#whiteCode").serialize(), // serializes the form's elements.
            success: function(data)
            {
-              console.log("Bianco Inviato"); // show response from the php script.
+              console.log("Bianco Inviato: "+data); // show response from the php script.
            }
          });
 
